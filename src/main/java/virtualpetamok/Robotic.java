@@ -1,6 +1,6 @@
 package virtualpetamok;
 
-public abstract class Robotic extends VirtualPet implements DogInter {
+public abstract class Robotic extends VirtualPet{
 	private int oil = 20;
 	
 	Robotic(String name){
@@ -13,10 +13,6 @@ public abstract class Robotic extends VirtualPet implements DogInter {
 	
 	public void oilPet() {
 		oil += 5;
-	}
-	
-	public void walkDog() {
-		happy += 5;
 	}
 	
 }

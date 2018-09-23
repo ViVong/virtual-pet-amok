@@ -1,7 +1,8 @@
 package virtualpetamok;
 
-public abstract class Organic extends VirtualPet implements DogInter {
-	int hunger =30, thirst = 30, clean = 50;
+public abstract class Organic extends VirtualPet{
+	private int hunger =30, thirst = 30;
+	protected int litter;
 	
 	Organic(String name){
 		super(name);
@@ -21,12 +22,5 @@ public abstract class Organic extends VirtualPet implements DogInter {
 	
 	public int getThirst() {
 		return thirst;
-	}
-	public int getClean() {
-		return clean;
-	}
-	
-	public void walkDog() {
-		happy += 5;
 	}
 }
