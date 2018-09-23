@@ -58,4 +58,22 @@ public class VirtualPetShelter {
 			}
 		}
 	}
+	
+	public void tick() {
+		int i;
+		for (VirtualPet pet: shelter.values()){
+			if (pet instanceof OrganDog) {
+				((OrganDog) pet).addWaste(((OrganDog) pet).tick());
+			}
+			else if (pet instanceof OrganCat) {
+				((OrganCat) pet).addWaste(((OrganDog) pet).tick());
+			}
+			else if (pet instanceof RoboDog) {
+				((RoboDog) pet).tick();
+			}
+			else if (pet instanceof RoboCat) {
+				((RoboCat) pet).tick();
+			}
+		}
+	}
 }

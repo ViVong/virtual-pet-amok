@@ -1,7 +1,7 @@
 package virtualpetamok;
 
 public abstract class Robotic extends VirtualPet{
-	private int oil = 20;
+	protected int oil = 20;
 	
 	Robotic(String name){
 		super(name);
