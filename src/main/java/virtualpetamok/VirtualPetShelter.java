@@ -1,9 +1,6 @@
 package virtualpetamok;
 
 import java.util.HashMap;
-import java.util.Map;
-
-import virtualpetshelter.VirtualPet;
 
 public class VirtualPetShelter {
 	HashMap<String, VirtualPet> shelter = new HashMap<String, VirtualPet>();
@@ -36,6 +33,22 @@ public class VirtualPetShelter {
 	
 	public void adopt(String name) {
 		shelter.remove(name);
+	}
+	
+	public void cleanCages() {
+		for (VirtualPet pet: shelter.values()){
+			if (pet instanceof OrganDog) {
+				((OrganDog) pet).cleanPets();
+			}
+		}
+	}
+	
+	public void cleanLitter() {
+		for (VirtualPet pet: shelter.values()){
+			if (pet instanceof OrganCat) {
+				((OrganCat) pet).cleanPets();
+			}
+		}
 	}
 	
 	public void oilRoboPets() {

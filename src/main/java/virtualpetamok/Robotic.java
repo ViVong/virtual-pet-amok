@@ -13,6 +13,8 @@ public abstract class Robotic extends VirtualPet{
 	
 	public void oilPet() {
 		oil += 5;
+		health += 3;
+		happy += 2;
 	}
 	
 }
