@@ -15,7 +15,7 @@ public class VirtualPetShelter {
 		System.out.println("--------|--------|--------|-------|--------|-----------|------------|-------|");
 		for (VirtualPet pet: shelter.values()){
 			if (pet instanceof Organic) {
-				System.out.println(pet.name + "\t| " + ((Organic) pet).getHunger() + "\t | " + ((Organic) pet).getThirst() + "\t  |\t  | " + pet.getHealth() + "\t   | " + pet.getHappy() + "\t       | " + ((Organic) pet).getClean() + "\t    | " + ((Organic) pet).getWaste() + "\t    |");
+				System.out.println(pet.name + "\t| " + ((Organic) pet).getHunger() + "\t | " + ((Organic) pet).getThirst() + "\t  |\t  | " + pet.getHealth() + "\t   | " + pet.getHappy() + "\t       | " + ((Organic) pet).getClean() + "\t    | " + ((Organic) pet).getWaste() + "     |");
 			}
 		}
 		for (VirtualPet pet: shelter.values()){
@@ -57,6 +57,14 @@ public class VirtualPetShelter {
 	
 	public void admit(VirtualPet pet) {
 		shelter.put(pet.name.toLowerCase(), pet);
+		if (pet instanceof OrganCat) {
+			for (VirtualPet cat: shelter.values()){
+				if (cat instanceof OrganCat) {
+					((OrganCat) pet).clean = ((OrganCat) cat).clean;
+					((OrganCat) pet).waste = ((OrganCat) cat).waste;
+				}
+			}
+		}
 	}
 	
 	public void adopt(String name) {
