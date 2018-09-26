@@ -9,6 +9,22 @@ public class VirtualPetShelter {
 	public HashMap<String, VirtualPet> shelter(){
 		return shelter;
 	}
+	
+	public void allPets() {
+		System.out.println("\nName\t| Hunger | Thirst |  Oil  | Health | Happiness | Cleaniness | Waste |");
+		System.out.println("--------|--------|--------|-------|--------|-----------|------------|-------|");
+		for (VirtualPet pet: shelter.values()){
+			if (pet instanceof Organic) {
+				System.out.println(pet.name + "\t| " + ((Organic) pet).getHunger() + "\t | " + ((Organic) pet).getThirst() + "\t  |\t  | " + pet.getHealth() + "\t   | " + pet.getHappy() + "\t       | " + ((Organic) pet).getClean() + "\t    | " + ((Organic) pet).getWaste() + "\t    |");
+			}
+		}
+		for (VirtualPet pet: shelter.values()){
+			if (pet instanceof Robotic) {
+				System.out.println(pet.name + "\t|\t |\t  | " + ((Robotic) pet).getOil() + "\t  | " + pet.getHealth() + "\t   | " + pet.getHappy() + "\t       |\t    |\t    |");
+			}
+		}
+	}
+	
 	public VirtualPet onePet(String name) {
 		return shelter.get(name);
 	}
@@ -24,6 +40,17 @@ public class VirtualPetShelter {
 		for (VirtualPet pet: shelter.values()){
 			if (pet instanceof Organic) {
 				((Organic) pet).waterPet();
+			}
+		}
+	}
+	
+	public void walkDogs() {
+		for (VirtualPet pet: shelter.values()){
+			if (pet instanceof OrganDog) {
+				((OrganDog) pet).walkDog();
+			}
+			if (pet instanceof RoboDog) {
+				((RoboDog) pet).walkDog();
 			}
 		}
 	}
