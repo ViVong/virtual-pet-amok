@@ -11,6 +11,6 @@ public class OrganCat extends Organic implements Tick {
 		thirst += 3;
 		health --;
 		happy --;
-		return 1;
+		return 2;
 	}
 }

@@ -1,6 +1,7 @@
 package virtualpetamok;
 
 import java.util.HashMap;
+import java.util.Random;
 
 public class VirtualPetShelter {
 	HashMap<String, VirtualPet> shelter = new HashMap<String, VirtualPet>();
@@ -60,19 +61,28 @@ public class VirtualPetShelter {
 	}
 	
 	public void tick() {
-		int i;
+		Random random = new Random();
+		int litterbox = 0;
 		for (VirtualPet pet: shelter.values()){
 			if (pet instanceof OrganDog) {
 				((OrganDog) pet).addWaste(((OrganDog) pet).tick());
+				if (random.nextInt(49)+1 > pet.happy) {
+					((OrganDog) pet).addWaste(4);
+				}
 			}
 			else if (pet instanceof OrganCat) {
-				((OrganCat) pet).addWaste(((OrganDog) pet).tick());
+				litterbox += ((OrganCat) pet).tick();
 			}
 			else if (pet instanceof RoboDog) {
 				((RoboDog) pet).tick();
 			}
 			else if (pet instanceof RoboCat) {
 				((RoboCat) pet).tick();
+			}
+		}
+		for (VirtualPet pet: shelter.values()){
+			if (pet instanceof OrganCat) {
+				((OrganCat) pet).addWaste(litterbox);
 			}
 		}
 	}

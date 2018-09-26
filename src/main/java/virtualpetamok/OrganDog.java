@@ -1,7 +1,5 @@
 package virtualpetamok;
 
-import java.util.Random;
-
 public class OrganDog extends Organic implements DogInter, Tick {
 	OrganDog(String name){
 		super(name);
@@ -15,12 +13,11 @@ public class OrganDog extends Organic implements DogInter, Tick {
 
 	@Override
 	public int tick() {
-		Random generator = new Random();
 		hunger += 2;
 		thirst += 3;
 		health --;
 		happy --;
-		return generator.nextInt(5) + 1;
+		return 4;
 	}
 	
 }

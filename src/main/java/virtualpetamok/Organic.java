@@ -1,7 +1,7 @@
 package virtualpetamok;
 
 public abstract class Organic extends VirtualPet{
-	protected int hunger = 30, thirst = 30, clean = 20;
+	protected int hunger = 30, thirst = 30, clean = 45, waste = 5;
 	
 	Organic(String name){
 		super(name);
@@ -20,10 +20,12 @@ public abstract class Organic extends VirtualPet{
 	}
 	
 	public void cleanPets() {
-		clean += 20;
+		clean += waste;
+		waste = 0;
 	}
 	
 	public void addWaste(int waste) {
+		this.waste += waste;
 		clean -= waste;
 	}
 	
@@ -40,7 +42,7 @@ public abstract class Organic extends VirtualPet{
 	}
 	
 	public int getWaste() {
-		return clean;
+		return waste;
 	}
 	
 }
